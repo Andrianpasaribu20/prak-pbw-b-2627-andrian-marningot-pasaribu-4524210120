@@ -65,3 +65,50 @@ IPK normalnya berada pada rentang 0 sampai 4. Jadi jika misalnya:
 program akan menampilkan:
 IPK tidak valid.
 
+![image alt](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/c9b64dcb19b1ccb3314abe811b59ecd5599d67d4/Sesudah%20(2).png)
+1. Menambahkan atribut Prodi
+
+Pada kode awal hanya ada:
+
+private string $nim;
+private string $nama;
+private float $ipk;
+
+Kemudian ditambahkan:
+
+private string $prodi;
+
+Dan pada constructor:
+
+$this->prodi = $prodi;
+
+Sehingga saat membuat objek:
+
+$mhs = new Mahasiswa(
+    '2026001',
+    'Andi Pratama',
+    'Teknik Informatika',
+    3.75
+);
+
+Sekarang data mahasiswa juga memiliki program studi.
+
+2. Menambahkan fungsi predikat
+
+Ditambahkan method:
+
+public function predikat(): string
+{
+    if ($this->ipk >= 3.50) {
+        return 'Sangat Memuaskan';
+    } elseif ($this->ipk >= 3.00) {
+        return 'Memuaskan';
+    } else {
+        return 'Perlu Peningkatan';
+    }
+}
+
+Dengan IPK 3.75, hasilnya:
+
+Predikat: Sangat Memuaskan
+
