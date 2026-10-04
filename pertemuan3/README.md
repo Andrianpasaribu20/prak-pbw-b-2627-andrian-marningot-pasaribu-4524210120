@@ -2,7 +2,8 @@ Tugas Prak.PBW_B_Andrian Marningot Pasaribu_4524210120
 
 ![image alt](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/b451a0371a3579d7c1801cfe5891cb89dee01e1f/pertemuan3/Screenshot%202026-10-04%20202109.png)
 
-![image alt](
+![image alt](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/28bf12e4b58cf14ae2bf6caf36acc165de0423dd/pertemuan3/Screenshot%202026-10-04%20213319.png)
+
 2. Dua modifikasi yang dilakukan
 Modifikasi 1: Styling
 Saya ubah menjadi output HTML dengan CSS:
