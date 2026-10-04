@@ -59,3 +59,5 @@ foreach ($sqlCreateTables as $query) {
 }
 
 Bagian ini digunakan untuk menjalankan seluruh query pembuatan tabel yang disimpan di dalam array $sqlCreateTables.
+
+hasil run
