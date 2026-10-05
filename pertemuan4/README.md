@@ -49,6 +49,7 @@ Data yang dimasukkan meliputi:
 - Prodi
 - Angkatan
 - IPK
+
 3. ON DUPLICATE KEY UPDATE
 ON DUPLICATE KEY UPDATE
     nama = VALUES(nama),
@@ -59,6 +60,7 @@ ON DUPLICATE KEY UPDATE
 
 Bagian ini merupakan salah satu modifikasi utama.
 Jika data dengan NIM/email yang sama sudah ada, maka data tersebut akan di-update, bukan menghasilkan error atau diabaikan.
+
 4. GROUP BY, COUNT() dan AVG()
 SELECT
     prodi,
@@ -67,13 +69,6 @@ SELECT
 FROM mahasiswa
 WHERE ipk >= 3.50
 GROUP BY prodi
-
-Bagian ini digunakan untuk melakukan analisis data mahasiswa.
-Contohnya bisa menghasilkan:
-Prodi                Jumlah    Rata-rata IPK
-------------------------------------------------
-Sistem Informasi       1           3.82
-Teknik Informatika     1           3.75
 
 Jadi tidak hanya mengambil data, tetapi juga melakukan perhitungan terhadap data.
 5. Mencari IPK tertinggi
