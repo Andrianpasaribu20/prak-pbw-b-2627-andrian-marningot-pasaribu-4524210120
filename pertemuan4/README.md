@@ -87,4 +87,6 @@ membatasi hasil menjadi satu data saja.
 
 Tugas 5
 
+![image alt](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/0c47f6f912568eb5316937c2a060fae6c3223b85/pertemuan4/Screenshot%202026-10-05%20195146.png)
+
 ![image alt](
