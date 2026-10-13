@@ -23,4 +23,26 @@ Penjelasannya :
       mysqli_real_escape_string() membantu mengamankan kata kunci untuk query SQL.
 
 3. Bagian delete.php
-![image](
+![image](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/db065cb437c3fa5aaecd2c8c1c1f24ca9e8a5dba/pertemuan6/Tugas6/Screenshot%202026-10-13%20220156.png)
+Modifikasi Pertama  — Validasi parameter NIM
+Kode yang ditambahkan:
+if (!isset($_GET['nim']) || trim($_GET['nim']) === '') {
+    // Menampilkan pesan kesalahan
+}
+Penjelasan:
+         isset($_GET['nim']) memeriksa apakah parameter NIM tersedia di URL.
+         trim() menghapus spasi di awal dan akhir teks.
+         Jika NIM tidak tersedia atau kosong, proses penghapusan dihentikan menggunakan exit.
+Modifikasi Kedua — Prepared statement
+Kode yang digunakan:
+$stmt = mysqli_prepare(
+    $koneksi,
+    "DELETE FROM mahasiswa WHERE nim = ?"
+);
+mysqli_stmt_bind_param($stmt, "s", $nim);
+Penjelasan:
+         Tanda ? digunakan sebagai tempat parameter NIM.
+         mysqli_stmt_bind_param() mengikat nilai NIM ke query.
+         "s" menunjukkan bahwa parameter diperlakukan sebagai string.
+
+- Cara ini membantu mencegah SQL injection dibandingkan menyisipkan nilai NIM secara langsung ke query SQL.
