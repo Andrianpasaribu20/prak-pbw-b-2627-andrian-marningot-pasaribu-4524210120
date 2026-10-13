@@ -44,5 +44,4 @@ Penjelasan:
          Tanda ? digunakan sebagai tempat parameter NIM.
          mysqli_stmt_bind_param() mengikat nilai NIM ke query.
          "s" menunjukkan bahwa parameter diperlakukan sebagai string.
-
-- Cara ini membantu mencegah SQL injection dibandingkan menyisipkan nilai NIM secara langsung ke query SQL.
+         Cara ini membantu mencegah SQL injection dibandingkan menyisipkan nilai NIM secara langsung ke query SQL.
