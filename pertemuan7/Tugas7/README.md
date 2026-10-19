@@ -9,6 +9,7 @@ Pada halaman Daftar Produk, pengguna dapat melihat seluruh data produk yang ters
       Menyediakan tombol Edit untuk mengubah data produk yang sudah tersimpan.
       Menampilkan data secara otomatis berdasarkan isi database.
 
+
 Halaman From Tambah Produk
 ![image](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/d71bd36641f90083d69f01f59afcb270f04865b9/pertemuan7/Tugas7/Screenshot%202026-10-19%20070707.png)
 Pada halaman Form Tambah Produk, pengguna dapat memasukkan nama produk, harga, dan stok barang. Setelah tombol Simpan Produk ditekan, data akan dikirim ke Controller untuk diperiksa, kemudian Model menyimpan data tersebut ke database MySQL. Setelah berhasil, pengguna akan diarahkan kembali ke halaman Daftar Produk.
@@ -19,6 +20,7 @@ Pada halaman Form Tambah Produk, pengguna dapat memasukkan nama produk, harga, d
       Simpan Produk: Mengirimkan data untuk diproses dan disimpan ke database.
       Kembali ke Daftar Produk: Kembali ke halaman utama.
 
+
 **Halaman Edit Produk **
 ![image](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/18949bd3901892cea477f852a181f915d3f265de/pertemuan7/Tugas7/Screenshot%202026-10-19%20070721.png)
 Pada halaman Form Edit Produk, pengguna dapat mengubah nama, harga, dan stok produk yang sudah tersimpan. Data produk ditampilkan terlebih dahulu berdasarkan ID produk yang dipilih. Setelah pengguna menekan tombol Simpan Perubahan, Controller memproses data tersebut dan Model memperbarui data di database MySQL. Dengan demikian, perubahan dapat ditampilkan kembali pada halaman Daftar Produk.
@@ -28,6 +30,7 @@ Fitur pada Form Edit Produk:
       Stok: Mengubah jumlah persediaan produk.
       Simpan Perubahan: Menyimpan data yang telah diperbarui ke database.
       Kembali ke Daftar Produk: Kembali ke halaman utama.
+
 
 **Database**
 Database dibuat menggunakan phpMyAdmin untuk menyimpan data produk pada program penjualan. Database yang digunakan bernama db_penjualan, sedangkan tabel yang digunakan bernama produk.
