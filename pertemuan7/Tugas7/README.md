@@ -32,8 +32,10 @@ Fitur pada Form Edit Produk:
       Kembali ke Daftar Produk: Kembali ke halaman utama.
 
 
-<b>Database<b>
-![image](
+<div>
+      <b>Database</b>
+</div>
+![image](https://github.com/Andrianpasaribu20/prak-pbw-b-2627-andrian-marningot-pasaribu-4524210120/blob/8597b096edaccf143b73d4cc9411427e907dbfbc/pertemuan7/Tugas7/Screenshot%202026-10-19%20065548.png)
 Database dibuat menggunakan phpMyAdmin untuk menyimpan data produk pada program penjualan. Database yang digunakan bernama db_penjualan, sedangkan tabel yang digunakan bernama produk.
 
 
