@@ -34,7 +34,7 @@
                 <p>350</p>
             </div>
         </div>
-        <hr class="divider">
+        <hr class="divider">+
         <h2>Data Mahasiswa</h2>
         <a href="<?= base_url('mahasiswa/tambah'); ?>" 
             class="btn btn-primary">
