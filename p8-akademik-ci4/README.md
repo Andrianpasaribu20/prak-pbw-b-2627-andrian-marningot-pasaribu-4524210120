@@ -79,3 +79,10 @@ Tugas8/
 ├── .env                         # Konfigurasi environment (DB, BaseURL)
 ├── .htaccess                    # URL rewrite Apache
 └── index.php                    #
+
+## Screenshot Program
+<img width="1902" height="993" alt="image" src="https://github.com/user-attachments/assets/4b33ab9e-c38d-49c5-9e68-3052cc358a60" />
+<br>
+<img width="1901" height="991" alt="image" src="https://github.com/user-attachments/assets/1d52e29f-7423-455f-ba50-5e2e8119f8ad" />
+<br>
+<img width="1904" height="987" alt="image" src="https://github.com/user-attachments/assets/c13516e3-79ce-40a2-a138-e40b1b9cec5d" />
