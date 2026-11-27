@@ -1,69 +1,81 @@
-# CodeIgniter 4 Application Starter
+# Modul Mahasiswa (CRUD & Validasi) - CodeIgniter 4
+**Tugas Pemrograman Berbasis Web (Pertemuan 8)**
 
-## What is CodeIgniter?
+Modul CRUD data mahasiswa berbasis framework **CodeIgniter 4** yang terhubung langsung ke database **`akademik1`**, dilengkapi validasi input form menggunakan **Validation Rules CodeIgniter 4**, penanganan pesan kesalahan secara informatif pada view (alert summary dan inline form feedback), serta proteksi **CSRF Token** dan **XSS Escaping**.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+---
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## Fitur Utama
+1. **Daftar Mahasiswa (Read)**
+   - Menampilkan seluruh data mahasiswa dari tabel `mahasiswa` pada database `akademik1`.
+   - Fitur pencarian data mahasiswa berdasarkan NIM, Nama, Program Studi, dll.
+   - Pewarnaan badge IPK otomatis berdasarkan nilai prestasi (Hijau $\ge 3.50$, Biru $\ge 3.00$, Kuning $\ge 2.50$, Merah $< 2.50$).
+   - Indikator total jumlah mahasiswa.
+2. **Tambah Mahasiswa (Create)**
+   - Formulir input data mahasiswa baru.
+   - Validasi ketat menggunakan Validation Rules CI4.
+   - Nilai input tetap tersimpan (`old()`) ketika validasi gagal sehingga pengguna tidak perlu mengisi ulang dari awal.
+3. **Ubah Mahasiswa (Update)**
+   - Formulir edit data mahasiswa dengan data awal yang otomatis terisi.
+   - Pengecekan keunikan NIM dengan pengecualian terhadap data mahasiswa itu sendiri (`is_unique[mahasiswa.nim,nim,{nim}]`).
+4. **Hapus Mahasiswa (Delete)**
+   - Fitur hapus data mahasiswa dengan konfirmasi modal pop-up (mencegah klik tidak sengaja).
+5. **Validasi Input & Pesan Kesalahan (Validation & Feedback)**
+   - Tampilan ringkasan pesan kesalahan (*Alert Box* di bagian atas form).
+   - Penandaan kolom input bermasalah (*border merah* `is-invalid`) dan pesan kesalahan tepat di bawah masing-masing elemen formulir (*inline feedback*).
+   - Notifikasi sukses (*Flashdata Alert*) setelah operasi berhasil.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+---
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+## Struktur Database (`akademik1`)
 
-## Installation & updates
+Tabel: `mahasiswa`
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+| Field | Tipe Data | Keterangan |
+| :--- | :--- | :--- |
+| `nim` | `VARCHAR(20)` | Primary Key, Nomor Induk Mahasiswa |
+| `nama` | `VARCHAR(100)` | Nama Lengkap Mahasiswa |
+| `email` | `VARCHAR(100)` | Alamat Email Mahasiswa |
+| `prodi` | `VARCHAR(100)` | Program Studi |
+| `angkatan` | `INT(11)` | Tahun Angkatan (2000 - 2030) |
+| `ipk` | `DECIMAL(3,2)` | Indeks Prestasi Kumulatif (0.00 - 4.00) |
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+---
 
-## Setup
+## Aturan Validasi CI4 (Validation Rules)
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+| Kolom | Aturan Validasi | Pesan Kesalahan Kustom |
+| :--- | :--- | :--- |
+| **NIM** | `required`, `numeric`, `min_length[5]`, `max_length[20]`, `is_unique[mahasiswa.nim]` | - Wajib diisi<br>- Hanya boleh angka<br>- Minimal 5 karakter, maksimal 20 karakter<br>- NIM harus unik / belum terdaftar |
+| **Nama** | `required`, `min_length[3]`, `max_length[100]` | - Wajib diisi<br>- Minimal 3 karakter, maksimal 100 karakter |
+| **Email** | `required`, `valid_email`, `max_length[100]` | - Wajib diisi<br>- Format email harus valid |
+| **Program Studi** | `required` | - Wajib dipilih dari daftar prodi |
+| **Angkatan** | `required`, `numeric`, `exact_length[4]`, `greater_than_equal_to[2000]`, `less_than_equal_to[2030]` | - Wajib diisi<br>- Harus angka 4 digit<br>- Rentang tahun 2000 s/d 2030 |
+| **IPK** | `required`, `numeric`, `greater_than_equal_to[0.00]`, `less_than_equal_to[4.00]` | - Wajib diisi<br>- Format angka/desimal<br>- Rentang nilai 0.00 s/d 4.00 |
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## Struktur File Modul
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.2 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+```text
+Tugas8/
+├── app/
+│   ├── Config/
+│   │   ├── Database.php         # Konfigurasi database akademik1
+│   │   └── Routes.php           # Rute modul mahasiswa
+│   ├── Controllers/
+│   │   └── Mahasiswa.php        # Controller CRUD & aturan validasi CI4
+│   ├── Models/
+│   │   └── MahasiswaModel.php   # Model database tabel mahasiswa
+│   └── Views/
+│       ├── layout/
+│       │   └── template.php     # Layout template utama (Bootstrap 5)
+│       └── mahasiswa/
+│           ├── index.php        # Tampilan tabel daftar mahasiswa & modal hapus
+│           ├── tambah.php       # Form tambah mahasiswa & penampil pesan validasi
+│           └── ubah.php         # Form ubah mahasiswa & penampil pesan validasi
+├── public/
+│   └── index.php                # Front controller CodeIgniter 4
+├── .env                         # Konfigurasi environment (DB, BaseURL)
+├── .htaccess                    # URL rewrite Apache
+└── index.php                    #
